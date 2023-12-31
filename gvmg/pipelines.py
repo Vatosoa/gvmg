@@ -31,7 +31,10 @@ class GvmgPipeline:
                     pass
 
 
-        
+        ## Convert place_value "(None,)" for ""
+        place_value = adapter.get('place')
+        if isinstance(place_value, tuple) and len(place_value) == 1 and place_value[0] is None:
+            adapter['place'] = ""  # Update with an empty string
 
 
         return item
